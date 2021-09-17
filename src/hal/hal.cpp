@@ -156,7 +156,7 @@ void hal_processPendingIRQs() {
     uint8_t i;
     for (i = 0; i < NUM_DIO_INTERRUPT; ++i) {
         ostime_t iTime;
-        if (plmic_pins->dio[i] == LMIC_UNUSED_PIN)
+        if (plmic_pins == nullptr || plmic_pins->dio[i] == LMIC_UNUSED_PIN)
             continue;
 
         // NOTE(tmm@mcci.com): if using interrupts, this next step
